@@ -1,127 +1,116 @@
 # Tasha's Collection 👗✨
 
-**Tasha's Collection** is a modern, AI-optimized **fashion and beauty e-commerce website** built for seamless shopping, elegant product displays, and a luxurious user experience. With a focus on minimalist aesthetics and a smooth browsing interface, this project is designed to scale for real-world fashion businesses across Africa and beyond.
-
-The entire application is developed with a **React.js frontend** and a **Node.js/Express backend**, styled using **Tailwind CSS** and branded with rich visuals and chic typography.
+**Tasha's Collection** is a modern fashion and beauty e-commerce platform built to showcase and sell products online with a seamless and visually appealing user experience. This full-stack application blends React for the frontend with a Python Flask backend, offering scalability and responsiveness across all devices.
 
 ---
 
-### 🌟 Live Demo
+### 🌟 Overview
 
-_Coming soon..._
-
----
-
-### 🛍️ Key Features
-
-- 💄 **Beautiful Product Showcase**: Fashionable items with clean UI and aesthetic layouts  
-- 🛒 **Shopping Cart System** (WIP)  
-- 🧠 **AI-ready Framework**: Built with extendability for recommendation systems and AI chat assistance  
-- 📱 **Fully Responsive Design**: Optimized for mobile and desktop  
-- 🎨 **Brand-Specific Design**: Golden yellow `#FCC200` with soft pink/teal accents, using `Montserrat` and `Poppins` fonts  
+The platform is designed for fashion lovers and boutique business owners who want to bring their collections online. It features a stylish interface, product showcase, cart functionality, and a solid backend structure for future enhancements like payments and admin dashboards.
 
 ---
 
-### 🧽 Project Structure
+### 🚀 Features
 
-```plaintext
+- 🛝️ **Product Listings** – Displays fashion and beauty items dynamically from a backend database.
+- 🎨 **Modern UI/UX** – Built with React and Tailwind CSS, following a minimalist and brand-conscious design system.
+- 🧾 **Cart Functionality** – Add items to the cart (future enhancements may include checkout and payment).
+- 💛 **Brand Theme** – Uses golden yellow `#FCC200` as primary, soft pink/teal as secondary, with Montserrat and Poppins fonts.
+- 📦 **RESTful API** – Python Flask-based backend for managing data and products.
+- 🔐 **Structured Codebase** – Frontend and backend organized into clean, reusable modules.
+
+---
+
+### 🛠 Technologies Used
+
+#### Frontend:
+- React.js
+- Tailwind CSS
+- JavaScript (ES6+)
+- Vite (React boilerplate)
+
+#### Backend:
+- Python 3.x
+- Flask
+- SQLite3 (via `schema.sql`)
+
+#### Others:
+- Git & GitHub
+- REST API design
+- LocalStorage (for cart functionality)
+
+---
+
+### 📁 Project Structure
+
+```
 natasha-website/
-│
 ├── tashas-collection/
-│   ├── client/                 # React Frontend
-│   │   ├── public/            # Static files (favicon, index.html, etc.)
+│   ├── client/            # Frontend codebase
+│   │   ├── public/        # Static files
 │   │   └── src/
-│   │       ├── assets/        # Images and logos
-│   │       ├── components/    # Navbar, Hero section, Product cards, etc.
-│   │       ├── context/       # Global state management (e.g., cart context)
-│   │       └── App.jsx        # App entry
-│   │
-│   └── server/                # Backend (Node.js/Express)
-│       └── index.js          # API and routing (WIP)
+│   │       ├── assets/    # Images and branding
+│   │       ├── components/# Reusable React components
+│   │       ├── context/   # Global state (e.g. cart context)
+│   │       └── App.jsx    # Main app entry
+│   ├── server/            # Backend (Flask)
+│   │   ├── app.py         # Flask app
+│   │   ├── schema.sql     # SQLite database schema
+│   │   └── requirements.txt # Backend dependencies
 ```
 
 ---
 
-### 🛠️ Technologies Used
+### 💡 Goals of the Project
 
-**Frontend**
-- React.js – Component-based SPA development  
-- Tailwind CSS – Utility-first styling  
-- JavaScript (ES6+) – Core scripting  
-- Google Fonts – Montserrat & Poppins  
-
-**Backend**
-- Node.js & Express – API and server-side logic (WIP)  
-- MongoDB (Planned) – For storing product and user data  
-- Nodemon – Development tool  
-
-**Others**
-- Git & GitHub – Version control  
-- Vite – Frontend tooling and fast builds  
-- VS Code – Recommended IDE  
-
----
-
-### 💡 Goals for the Project
-
-- Deliver a luxury e-commerce experience tailored for fashion & beauty  
-- Empower African entrepreneurs to take their brand online easily  
-- Enable future integration with AI-powered tools (e.g., personalized suggestions)  
-- Develop a scalable template for launching product-focused online stores  
-
----
-
-### 🚀 Getting Started
-
-Clone the repo:
-
-```bash
-git clone https://github.com/jim-X-AI/natasha-website.git
-cd natasha-website/tashas-collection/client
-```
-
-Install frontend dependencies:
-
-```bash
-npm install
-npm run dev
-```
-
-Run the backend (WIP):
-
-```bash
-cd ../server
-npm install
-npm run dev
-```
+- Provide a platform for showcasing African-inspired fashion and beauty products.
+- Empower small businesses to go digital with a modern, affordable solution.
+- Build a scalable base for future features like payments, authentication, and dashboards.
 
 ---
 
 ### 🤝 Contributing
 
-Contributions are welcome! Want to improve the UI, add functionality, or connect the backend?
+We welcome contributors! If you'd like to help improve the app:
 
-1. Fork the repository  
-2. Create a new branch: `git checkout -b feature-name`  
-3. Commit your changes  
-4. Push to your branch: `git push origin feature-name`  
-5. Open a pull request  
+1. Fork the repository
+2. Create your branch (`git checkout -b feature-name`)
+3. Commit your changes
+4. Push to your branch (`git push origin feature-name`)
+5. Submit a pull request
 
-You can also open issues for bugs, ideas, or collaboration!
+Feel free to open issues for bugs, suggestions, or design ideas.
 
 ---
 
 ### 📄 License
 
-This project is open-source and available under the **MIT License**.
+This project is open-source and available under the [MIT License](LICENSE).
 
 ---
 
-### 👩‍💻 Author & 💬 Contact
+### 👨‍💻 Developer && 💬 Contact
 
-**Abdulazeez Jamiu Oladipupo**  
-Passionate about using AI and technology to revolutionize Africa by building powerful, affordable digital solutions that empower businesses and inspire the next generation.
+_Abdulazeez Jamiu Oladipupo_ — Passionate about using AI and technology to revolutionize Africa by building powerful, affordable digital solutions that empower businesses and inspire the next generation.
 
-- **Email:** jamiuabdulazeez689@gmail.com  
-- **X (Twitter):** [@JamiuOladi55000](https://x.com/JamiuOladi55000)
+- **Email**: [jamiuabdulazeez689@gmail.com](mailto:jamiuabdulazeez689@gmail.com)  
+- **X (Twitter)**: [@JamiuOladi55000](https://x.com/JamiuOladi55000)
+
+---
+
+### ✅ To Run the Project Locally
+
+#### 1. Frontend
+```bash
+cd tashas-collection/client
+npm install
+npm run dev
+```
+
+#### 2. Backend
+```bash
+cd tashas-collection/server
+pip install -r requirements.txt
+python app.py
+```
 
