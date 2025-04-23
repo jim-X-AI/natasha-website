@@ -1,0 +1,48 @@
+# Ignore Python virtual environment
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Ignore IDE/editor settings
+.idea/
+.vscode/
+
+# Ignore logs
+*.log
+
+# Node & frontend build artifacts (inside client/)
+tashas-collection/client/node_modules/
+tashas-collection/client/dist/
+tashas-collection/client/.vite/
+tashas-collection/client/.next/
+tashas-collection/client/.turbo/
+tashas-collection/client/.parcel-cache/
+tashas-collection/client/npm-debug.log*
+tashas-collection/client/yarn-debug.log*
+tashas-collection/client/yarn-error.log*
+
+# Environment variables
+tashas-collection/server/.env
+.env
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*.swp
+*.swo
+*~
+
+# Ignore test coverage reports
+coverage/
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Ignore compiled SQL files or database dumps
+*.sql~

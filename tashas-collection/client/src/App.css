@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+/* Define custom theme variables */
+@theme {
+  /* Colors */
+  --color-primary: #FCC200;
+  --color-secondary: #00796B;
+  --color-accent: #FFB6C1;
+  --color-dark: #292F36;
+  --color-light: #F7FFF7;
+  --color-brand-teal: #00796B;
+  --color-brand-pink: #FFB6C1;
+  --color-brand-black: #000000;
+  --color-success: #4ECDC4;
+  --color-warning: #FFE66D;
+  --color-error: #FF6B6B;
+
+  /* Fonts */
+  --font-sans: "Poppins", sans-serif;
+  --font-heading: "Montserrat", sans-serif;
+  --font-logo: "Playfair Display", serif;
+
+  /* Shadows */
+  --shadow-elegant: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Base Styles */
+body {
+  font-family: var(--font-sans);
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.25rem; /* text-4xl */
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3rem; /* md:text-5xl */
+  }
+}
+
+h2 {
+  font-size: 1.875rem; /* text-3xl */
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: 2.25rem; /* md:text-4xl */
+  }
+}
+
+h3 {
+  font-size: 1.5rem; /* text-2xl */
+}
+
+@media (min-width: 768px) {
+  h3 {
+    font-size: 1.875rem; /* md:text-3xl */
+  }
+}
+
+/* Links */
+a {
+  transition-property: color;
+  transition-duration: 200ms;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: black;
+  padding: 0.75rem 1.5rem; /* px-6 py-3 */
+  border-radius: 0.5rem; /* rounded-lg */
+  font-weight: 500; /* font-medium */
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* hover:shadow-lg */
+  transform: translateY(-0.125rem); /* hover:-translate-y-0.5 */
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
+}
+
+/* Form Elements */
+input, textarea, select {
+  width: 100%;
+  padding: 0.5rem 1rem; /* px-4 py-2 */
+  border-radius: 0.5rem; /* rounded-lg */
+  border: 1px solid #e5e7eb; /* border-gray-200 */
+  outline: none;
+  transition: all 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Special Components */
+.logo-text {
+  font-family: var(--font-logo);
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 500; /* font-medium */
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 1.5rem; /* bottom-6 */
+  right: 1.5rem; /* right-6 */
+  background-color: #25D366;
+  color: white;
+  padding: 0.75rem; /* p-3 */
+  border-radius: 9999px; /* rounded-full */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
+  z-index: 50;
+  transition: all 0.2s;
+  transform: scale(1);
+}
+
+.whatsapp-float:hover {
+  background-color: #128C7E;
+  transform: scale(1.1);
+}
+
+/* Remove default styles */
+#root {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
