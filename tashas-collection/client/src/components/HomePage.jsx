@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaWhatsapp, FaArrowRight } from 'react-icons/fa';
 import Hero from './Hero';
 import ProductCard from './ProductCard';
-import Navbar from './Navbar'; // Import the Navbar component
+import Navbar from './Navbar';
 
 // Animation variants
 const containerVariants = {
@@ -44,7 +44,7 @@ const HomePage = () => {
     {
       name: "New Arrivals",
       query: "?sort=newest",
-      bgColor: "bg-[#FFD700]", // Vibrant gold
+      bgColor: "bg-[#FFD700]",
       textColor: "text-gray-900",
       image: "bg-[url('https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93')]",
       accentColor: "bg-[#FFC000]"
@@ -52,7 +52,7 @@ const HomePage = () => {
     {
       name: "Best Sellers",
       query: "?sort=bestselling",
-      bgColor: "bg-[#00796B]", // Deep teal
+      bgColor: "bg-[#00796B]",
       textColor: "text-white",
       image: "bg-[url('https://images.unsplash.com/photo-1592878904946-b3cd8ae243d0')]",
       accentColor: "bg-[#00695C]"
@@ -60,7 +60,7 @@ const HomePage = () => {
     {
       name: "Summer Essentials",
       query: "?collection=summer",
-      bgColor: "bg-[#FF6B6B]", // Coral pink
+      bgColor: "bg-[#FF6B6B]",
       textColor: "text-white",
       image: "bg-[url('https://images.unsplash.com/photo-1551232864-3f0890e580d9')]",
       accentColor: "bg-[#FF5252]"
@@ -78,7 +78,7 @@ const HomePage = () => {
       category: "Accessories",
       rating: 4.8,
       reviewCount: 142,
-      image_url: "https://images.unsplash.com/photo-1611591437281-460914d0f587",
+      image_url: "https://images.unsplash.com/photo-1605100804763-247f67b3557e",
       isNew: true
     },
     {
@@ -118,9 +118,6 @@ const HomePage = () => {
 
   return (
     <div className="font-sans antialiased text-gray-900">
-      {/* Navbar at the top */}
-{/*       <Navbar /> */}
-{/*       <div className="pt-20"/>  */}{/* Add this padding to account for navbar height */}
       <motion.div
         initial="hidden"
         animate="visible"
@@ -129,7 +126,7 @@ const HomePage = () => {
         {/* WhatsApp Floating Button */}
         <motion.a
           href="https://wa.me/1234567890"
-          className="fixed bottom-8 right-8 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-40 hover:shadow-3xl transition-all flex items-center justify-center"
+          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-[#25D366] text-white p-3 md:p-4 rounded-full shadow-2xl z-40 hover:shadow-3xl transition-all flex items-center justify-center"
           aria-label="Chat on WhatsApp"
           whileHover={{ scale: 1.1, rotate: 10 }}
           whileTap={{ scale: 0.95 }}
@@ -137,50 +134,48 @@ const HomePage = () => {
             boxShadow: '0 10px 25px -5px rgba(37, 211, 102, 0.3)'
           }}
         >
-          <FaWhatsapp size={26} className="drop-shadow-md" />
-          <span className="absolute -bottom-8 text-xs font-medium text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity">
-            Concierge Service
-          </span>
+          <FaWhatsapp size={24} className="drop-shadow-md" />
+          <span className="sr-only">Concierge Service</span>
         </motion.a>
 
         {/* Hero Section */}
         <Hero />
 
         {/* Collections Banner */}
-        <section className="py-20 px-6">
+        <section className="py-12 md:py-20 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
             <motion.div
               variants={itemVariants}
-              className="mb-16 text-center"
+              className="mb-12 md:mb-16 text-center"
             >
-              <h2 className="text-4xl md:text-5xl font-bold font-serif mb-4 tracking-tight">
+              <h2 className="text-3xl md:text-5xl font-bold font-serif mb-3 md:mb-4 tracking-tight">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FFD700] to-[#FF6B6B]">
                   Our Collections
                 </span>
               </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
                 Curated selections for the discerning clientele
               </p>
             </motion.div>
 
             <motion.div
               variants={containerVariants}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
             >
               {collections.map((collection, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
                   whileHover={{ y: -10 }}
-                  className={`${collection.bgColor} ${collection.textColor} rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group relative`}
+                  className={`${collection.bgColor} ${collection.textColor} rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group relative`}
                 >
                   <Link to={`/products${collection.query}`} className="block h-full">
-                    <div className={`${collection.image} bg-cover bg-center h-80 md:h-96 relative`}>
+                    <div className={`${collection.image} bg-cover bg-center h-64 md:h-96 relative`}>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
-                      <div className="absolute inset-0 flex items-end p-8">
+                      <div className="absolute inset-0 flex items-end p-6 md:p-8">
                         <div>
-                          <h3 className="text-3xl font-bold mb-2">{collection.name}</h3>
-                          <button className={`flex items-center ${collection.textColor} border-2 ${collection.textColor === 'text-white' ? 'border-white' : 'border-gray-900'} px-6 py-2 rounded-full hover:bg-white hover:text-gray-900 transition-all`}>
+                          <h3 className="text-2xl md:text-3xl font-bold mb-2">{collection.name}</h3>
+                          <button className={`flex items-center ${collection.textColor} border-2 ${collection.textColor === 'text-white' ? 'border-white' : 'border-gray-900'} px-4 py-1 md:px-6 md:py-2 rounded-full hover:bg-white hover:text-gray-900 transition-all text-sm md:text-base`}>
                             Explore
                             <FaArrowRight className="ml-2" />
                           </button>
@@ -194,73 +189,78 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Categories Grid - Bold Colors */}
-        <section className="py-20 bg-white px-6">
+        {/* Categories Grid - With Actual Images */}
+        <section className="py-12 md:py-20 bg-white px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
             <motion.div
               variants={itemVariants}
-              className="mb-16 text-center"
+              className="mb-12 md:mb-16 text-center"
             >
-              <h2 className="text-4xl md:text-5xl font-bold font-serif mb-4 tracking-tight">
+              <h2 className="text-3xl md:text-5xl font-bold font-serif mb-3 md:mb-4 tracking-tight">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00796B] to-[#6A5ACD]">
                   Shop By Category
                 </span>
               </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
                 Find exactly what you're looking for
               </p>
             </motion.div>
 
             <motion.div
               variants={containerVariants}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
             >
               {[
                 {
                   name: "Accessories",
-                  icon: "💍",
+                  image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea",
                   link: "/products?category=accessories",
-                  bgColor: "bg-[#FFD700]", // Gold
+                  bgColor: "bg-gray-100",
                   textColor: "text-gray-900",
-                  hoverColor: "hover:bg-[#FFC000]"
                 },
                 {
                   name: "Skincare",
-                  icon: "🧴",
+                  image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b",
                   link: "/products?category=skincare",
-                  bgColor: "bg-[#FF6B6B]", // Coral
-                  textColor: "text-white",
-                  hoverColor: "hover:bg-[#FF5252]"
+                  bgColor: "bg-gray-100",
+                  textColor: "text-gray-900",
                 },
                 {
                   name: "Footwear",
-                  icon: "👠",
+                  image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
                   link: "/products?category=footwear",
-                  bgColor: "bg-[#00796B]", // Teal
-                  textColor: "text-white",
-                  hoverColor: "hover:bg-[#00695C]"
+                  bgColor: "bg-gray-100",
+                  textColor: "text-gray-900",
                 },
                 {
                   name: "Seasonal",
-                  icon: "🌞",
+                  image: "https://images.unsplash.com/photo-1551232864-3f0890e580d9",
                   link: "/products?category=seasonal",
-                  bgColor: "bg-[#6A5ACD]", // Purple
-                  textColor: "text-white",
-                  hoverColor: "hover:bg-[#5D4AC1]"
+                  bgColor: "bg-gray-100",
+                  textColor: "text-gray-900",
                 }
               ].map((category, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  className="overflow-hidden"
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  className="overflow-hidden rounded-lg md:rounded-xl shadow-md hover:shadow-lg transition-all"
                 >
                   <Link
                     to={category.link}
-                    className={`block p-8 text-center rounded-2xl ${category.bgColor} ${category.textColor} ${category.hoverColor} transition-all h-full shadow-lg hover:shadow-xl`}
+                    className={`block relative aspect-square ${category.bgColor} ${category.textColor} group`}
                   >
-                    <span className="text-5xl mb-6 block transform group-hover:scale-110 transition-transform">{category.icon}</span>
-                    <h3 className="font-bold text-xl md:text-2xl mb-2">{category.name}</h3>
+                    <div
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                      style={{ backgroundImage: `url(${category.image})` }}
+                    >
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all"></div>
+                    </div>
+                    <div className="absolute inset-0 flex items-end p-4 md:p-6">
+                      <h3 className="font-bold text-white text-lg md:text-xl drop-shadow-lg">
+                        {category.name}
+                      </h3>
+                    </div>
                   </Link>
                 </motion.div>
               ))}
@@ -268,66 +268,66 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Featured Products */}
-        <section className="py-20 px-6 bg-gray-50">
+        {/* Featured Products - More Compact */}
+        <section className="py-12 md:py-20 px-4 sm:px-6 bg-gray-50">
           <div className="max-w-7xl mx-auto">
             <motion.div
               variants={itemVariants}
-              className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16"
+              className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16"
             >
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold font-serif mb-3 tracking-tight">
+                <h2 className="text-3xl md:text-5xl font-bold font-serif mb-2 md:mb-3 tracking-tight">
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FF6B6B] to-[#6A5ACD]">
                     Featured Products
                   </span>
                 </h2>
-                <p className="text-gray-600 text-lg">Editor's selection of our most exquisite pieces</p>
+                <p className="text-gray-600 text-base md:text-lg">Editor's selection of our most exquisite pieces</p>
               </div>
               <Link
                 to="/products"
-                className="mt-6 md:mt-0 flex items-center text-[#00796B] hover:underline font-medium text-lg group"
+                className="mt-4 md:mt-0 flex items-center text-[#00796B] hover:underline font-medium text-base md:text-lg group"
               >
                 View all products
-                <FaArrowRight className="ml-3 group-hover:translate-x-2 transition-transform" />
+                <FaArrowRight className="ml-2 md:ml-3 group-hover:translate-x-1 md:group-hover:translate-x-2 transition-transform" />
               </Link>
             </motion.div>
 
             <motion.div
               variants={containerVariants}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
             >
               {featuredProducts.map(product => (
                 <motion.div
                   key={product.id}
                   variants={itemVariants}
-                  whileHover={{ y: -8 }}
+                  whileHover={{ y: -5 }}
                   className="relative"
                 >
-                  <ProductCard product={product} />
+                  <ProductCard product={product} compact />
                 </motion.div>
               ))}
             </motion.div>
           </div>
         </section>
 
-        {/* Value Proposition - Bold Colors */}
-        <section className="py-20 bg-white px-6">
+        {/* Value Proposition */}
+        <section className="py-12 md:py-20 bg-white px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
             <motion.div
               variants={itemVariants}
-              className="mb-16 text-center"
+              className="mb-12 md:mb-16 text-center"
             >
-              <h2 className="text-4xl md:text-5xl font-bold font-serif mb-4 tracking-tight">
+              <h2 className="text-3xl md:text-5xl font-bold font-serif mb-3 md:mb-4 tracking-tight">
                 The Tasha's Promise
               </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
                 Our commitment to excellence in every detail
               </p>
             </motion.div>
 
             <motion.div
               variants={containerVariants}
-              className="grid grid-cols-1 md:grid-cols-3 gap-10"
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10"
             >
               {[
                 {
@@ -355,55 +355,55 @@ const HomePage = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className={`text-center p-8 rounded-3xl ${item.bgColor} ${item.textColor} shadow-xl hover:shadow-2xl transition-all`}
+                  className={`text-center p-6 md:p-8 rounded-2xl md:rounded-3xl ${item.bgColor} ${item.textColor} shadow-lg hover:shadow-xl transition-all`}
                   whileHover={{ y: -5 }}
                 >
-                  <div className="text-6xl mb-8">{item.icon}</div>
-                  <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
-                  <p className="text-lg">{item.description}</p>
+                  <div className="text-5xl md:text-6xl mb-6 md:mb-8">{item.icon}</div>
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">{item.title}</h3>
+                  <p className="text-base md:text-lg">{item.description}</p>
                 </motion.div>
               ))}
             </motion.div>
           </div>
         </section>
 
-        {/* Newsletter - Vibrant */}
-        <section className="py-20 bg-[#6A5ACD] text-white px-6">
+        {/* Newsletter */}
+        <section className="py-12 md:py-20 bg-[#6A5ACD] text-white px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               variants={fadeIn}
-              className="mb-10"
+              className="mb-8 md:mb-10"
             >
-              <h2 className="text-4xl md:text-5xl font-bold font-serif mb-6 tracking-tight">
+              <h2 className="text-3xl md:text-5xl font-bold font-serif mb-4 md:mb-6 tracking-tight">
                 Join Our Exclusive Circle
               </h2>
-              <p className="text-white/90 text-xl max-w-2xl mx-auto">
+              <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto">
                 Receive 15% off your first order, private collection previews, and VIP event invitations
               </p>
             </motion.div>
 
             <motion.form
               variants={fadeIn}
-              className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
+              className="flex flex-col sm:flex-row gap-3 md:gap-4 max-w-md mx-auto"
             >
               <input
                 type="email"
                 placeholder="Your email address"
-                className="flex-1 px-6 py-4 rounded-lg border-0 focus:ring-2 focus:ring-[#FFD700] text-gray-900 placeholder-gray-500"
+                className="flex-1 px-4 py-3 md:px-6 md:py-4 rounded-lg border-0 focus:ring-2 focus:ring-[#FFD700] text-gray-900 placeholder-gray-500 text-sm md:text-base"
                 required
               />
               <button
                 type="submit"
-                className="bg-[#FFD700] text-gray-900 px-8 py-4 rounded-lg font-bold hover:bg-[#FFC000] transition flex items-center justify-center text-lg"
+                className="bg-[#FFD700] text-gray-900 px-6 py-3 md:px-8 md:py-4 rounded-lg font-bold hover:bg-[#FFC000] transition flex items-center justify-center text-sm md:text-lg"
               >
                 Become a Member
-                <FaArrowRight className="ml-3" />
+                <FaArrowRight className="ml-2 md:ml-3" />
               </button>
             </motion.form>
 
             <motion.p
               variants={fadeIn}
-              className="text-white/70 text-sm mt-6"
+              className="text-white/70 text-xs md:text-sm mt-4 md:mt-6"
             >
               By subscribing, you agree to our Privacy Policy and consent to receive updates.
             </motion.p>
