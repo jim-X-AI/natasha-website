@@ -11,21 +11,17 @@ const Navbar = () => {
   // Handle scroll effect for navbar
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu when clicking outside
+  // Close mobile menu when clicking outside or when route changes
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (isOpen && !event.target.closest(".mobile-menu")) {
+      if (isOpen && !event.target.closest(".mobile-menu-container")) {
         setIsOpen(false);
       }
     };
@@ -42,15 +38,17 @@ const Navbar = () => {
     { name: "Journal", path: "/blog" }
   ];
 
+  const closeMobileMenu = () => setIsOpen(false);
+
   return (
     <nav className={`fixed w-full bg-white z-50 transition-all duration-300 ${scrolled ? "shadow-md" : "shadow-sm"}`}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex justify-between items-center h-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <Link
             to="/"
             className="flex items-center"
-            onClick={() => setIsOpen(false)}
+            onClick={closeMobileMenu}
           >
             <span className="font-serif text-2xl font-bold text-gray-900 tracking-tight">
               TASHA'S
@@ -61,7 +59,7 @@ const Navbar = () => {
           </Link>
 
           {/* Primary Navigation - Desktop */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -75,19 +73,21 @@ const Navbar = () => {
           </div>
 
           {/* Secondary Navigation - Desktop */}
-          <div className="hidden md:flex items-center space-x-6">
-            <button
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
+            <Link
+              to="/search"
               className="p-2 text-gray-700 hover:text-primary transition-colors"
               aria-label="Search"
             >
               <FaSearch className="w-5 h-5" />
-            </button>
-            <button
+            </Link>
+            <Link
+              to="/account"
               className="p-2 text-gray-700 hover:text-primary transition-colors"
               aria-label="Account"
             >
               <FaUser className="w-5 h-5" />
-            </button>
+            </Link>
             <Link
               to="/cart"
               className="p-2 text-gray-700 hover:text-primary transition-colors relative"
@@ -121,32 +121,40 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden mobile-menu bg-white fixed w-full left-0 z-40 transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-screen shadow-xl" : "max-h-0"}`}
-        style={{ top: "5rem" }}
+        className={`md:hidden mobile-menu-container bg-white fixed w-full left-0 z-40 transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-screen shadow-xl" : "max-h-0"}`}
+        style={{ top: "4rem" }}
       >
-        <div className="px-6 py-4 space-y-4">
+        <div className="px-4 sm:px-6 py-3 space-y-2">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               to={link.path}
-              className="block py-3 text-gray-700 hover:text-primary transition-colors font-medium border-b border-gray-100"
-              onClick={() => setIsOpen(false)}
+              className="block py-3 px-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors font-medium rounded-md"
+              onClick={closeMobileMenu}
             >
               {link.name}
             </Link>
           ))}
 
-          <div className="flex items-center space-x-4 pt-4">
-            <button className="p-2 text-gray-700 hover:text-primary transition-colors">
+          <div className="flex items-center justify-center space-x-4 pt-2 pb-4 border-t border-gray-100 mt-2">
+            <Link
+              to="/search"
+              className="p-2 text-gray-700 hover:text-primary transition-colors"
+              onClick={closeMobileMenu}
+            >
               <FaSearch className="w-5 h-5" />
-            </button>
-            <button className="p-2 text-gray-700 hover:text-primary transition-colors">
+            </Link>
+            <Link
+              to="/account"
+              className="p-2 text-gray-700 hover:text-primary transition-colors"
+              onClick={closeMobileMenu}
+            >
               <FaUser className="w-5 h-5" />
-            </button>
+            </Link>
             <Link
               to="/cart"
               className="p-2 text-gray-700 hover:text-primary transition-colors relative"
-              onClick={() => setIsOpen(false)}
+              onClick={closeMobileMenu}
             >
               <FaShoppingCart className="w-5 h-5" />
               {cartItems > 0 && (
