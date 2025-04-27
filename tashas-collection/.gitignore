@@ -46,3 +46,6 @@ coverage/
 
 # Ignore compiled SQL files or database dumps
 *.sql~
+
+# Ignore build output
+dist/
