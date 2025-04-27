@@ -10,14 +10,29 @@ import './index.css';
 function App() {
   return (
     <CartProvider>
-      <div className="min-h-screen bg-light">
+      {/* Root container */}
+      <div className="min-h-screen bg-light font-sans antialiased text-gray-900">
+        {/* Navbar */}
         <Navbar />
-        <main className="pt-20"> {/* Critical padding for fixed navbar */}
+
+        {/* Main content with padding for fixed navbar */}
+        <main className="pt-20">
           <Routes>
+            {/* Home Page */}
             <Route path="/" element={<HomePage />} />
+
+            {/* Products Page */}
             <Route path="/products" element={<ProductsPage />} />
+
+            {/* Category-specific routes */}
+            <Route path="/products?category=accessories" element={<ProductsPage />} />
+            <Route path="/products?category=skincare" element={<ProductsPage />} />
+            <Route path="/products?category=footwear" element={<ProductsPage />} />
+            <Route path="/products?category=seasonal" element={<ProductsPage />} />
           </Routes>
         </main>
+
+        {/* Cart Modal */}
         <CartModal />
       </div>
     </CartProvider>
